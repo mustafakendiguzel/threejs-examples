@@ -20,11 +20,10 @@ onMounted(() => {
   const renderer = new Three.WebGLRenderer({ antialias: true });
   renderer.setSize(window.innerWidth, window.innerHeight);
   document.getElementById("canvasContainer")?.appendChild(renderer.domElement);
-
+  const karahanImage =
+    "https://media.licdn.com/dms/image/D4D03AQHT3ScgP93zQg/profile-displayphoto-shrink_800_800/0/1685793412335?e=2147483647&v=beta&t=FI3XFeAx7ZhxAKgZvn5fKAfqcgDoS0BcBWVqOOf3JWc";
   const geometry = new Three.BoxGeometry(2, 2, 2, 2);
-  const personMaterial = new Three.TextureLoader().load(
-    "public/1685793412335.jpeg"
-  );
+  const personMaterial = new Three.TextureLoader().load(karahanImage);
   const material = new Three.MeshBasicMaterial({
     map: personMaterial,
   });
