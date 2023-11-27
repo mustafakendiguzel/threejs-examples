@@ -23,7 +23,7 @@ onMounted(() => {
 
   const geometry = new Three.BoxGeometry(2, 2, 2, 2);
   const personMaterial = new Three.TextureLoader().load(
-    "/src/assets/1685793412335.jpeg"
+    "/public/1685793412335.jpeg"
   );
   const material = new Three.MeshBasicMaterial({
     map: personMaterial,
