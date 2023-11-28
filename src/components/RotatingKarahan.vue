@@ -22,12 +22,25 @@ onMounted(() => {
   document.getElementById("canvasContainer")?.appendChild(renderer.domElement);
   const karahanImage =
     "https://media.licdn.com/dms/image/D4D03AQHT3ScgP93zQg/profile-displayphoto-shrink_800_800/0/1685793412335?e=2147483647&v=beta&t=FI3XFeAx7ZhxAKgZvn5fKAfqcgDoS0BcBWVqOOf3JWc";
+  const cenkayImage =
+    "https://media.licdn.com/dms/image/C4D03AQFJCHxK5lHtDA/profile-displayphoto-shrink_800_800/0/1640021700010?e=2147483647&v=beta&t=fovj4wM04OzzNfuGzLPjxWXVzvPRrtA27Id1yA1bHHw";
   const geometry = new Three.BoxGeometry(2, 2, 2, 2);
-  const personMaterial = new Three.TextureLoader().load(karahanImage);
-  const material = new Three.MeshBasicMaterial({
-    map: personMaterial,
+  const karahanTexture = new Three.TextureLoader().load(karahanImage);
+  const cenkayTexture = new Three.TextureLoader().load(cenkayImage);
+  const karahanMaterial = new Three.MeshBasicMaterial({
+    map: karahanTexture,
   });
-  const cube = new Three.Mesh(geometry, material);
+  const cenkayMaterial = new Three.MeshBasicMaterial({
+    map: cenkayTexture,
+  });
+  const cube = new Three.Mesh(geometry, [
+    karahanMaterial,
+    cenkayMaterial,
+    karahanMaterial,
+    cenkayMaterial,
+    karahanMaterial,
+    cenkayMaterial,
+  ]);
   scene.add(cube);
 
   camera.position.z = 5;
